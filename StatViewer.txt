@@ -1,4 +1,5 @@
 ## Title: StatViewer
+## Author: Valball
 ## APIVersion: 100017
 
 StatViewer.xml
