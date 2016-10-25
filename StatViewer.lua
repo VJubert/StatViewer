@@ -17,7 +17,7 @@ end
 
 function StatViewer.UpdateStats(event)
   StatViewer.maxHealth=GetPlayerStat(STAT_HEALTH_MAX,STAT_BONUS_OPTION_APPLY_BONUS)
-  SVIndicator.Label:SetText(StatViewer.maxHealth)
+  Label:SetText(StatViewer.maxHealth)
 end
 
 EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_ADD_ON_LOADED, StatViewer.OnAddOnLoaded)
