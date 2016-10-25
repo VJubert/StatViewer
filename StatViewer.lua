@@ -36,7 +36,7 @@ STAT_SPELL_RESIST,
 STAT_STAMINA_MAX,
 STAT_STAMINA_REGEN_COMBAT,
 STAT_STAMINA_REGEN_IDLE,
-STAT_WEAPON_AND_SPELL_DAMAGE}
+STAT_WEAPON_AND_SPELL_DAMAGE="STAT_WEAPON_AND_SPELL_DAMAGE"}
 
 StatViewer.name="StatViewer"
 StatViewer.maxHealth=""
@@ -58,8 +58,8 @@ function StatViewer.OnAddOnLoaded(event, addonName)
 end
 
 function StatViewer.UpdateStats(event)
-for _,x in pairs(TESOStat) do
-SVIndicatorLabel:SetText(x.." : "..GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS))
+for x,t in pairs(TESOStat) do
+SVIndicatorLabel:SetText(t.." : "..GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS))
 end
 end
 
