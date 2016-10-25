@@ -11,13 +11,12 @@ end
 function StatViewer.OnAddOnLoaded(event, addonName)
   if addonName==StatViewer.name then
     StatViewer.Initiliaze()
----    StatViewer.UpdateStats(event)
   end
 end
 
 function StatViewer.UpdateStats(event)
   StatViewer.maxHealth=GetPlayerStat(STAT_HEALTH_MAX,STAT_BONUS_OPTION_APPLY_BONUS)
-  Label:SetText(StatViewer.maxHealth)
+  SVIndicatorLabel:SetText(StatViewer.maxHealth)
 end
 
 EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_ADD_ON_LOADED, StatViewer.OnAddOnLoaded)
