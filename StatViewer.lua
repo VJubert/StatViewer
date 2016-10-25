@@ -58,7 +58,7 @@ function StatViewer.OnAddOnLoaded(event, addonName)
 end
 
 function StatViewer.UpdateStats(event)
-SVSVIndicatorLabel:SetText("")
+SVIndicatorLabel:SetText("")
 for t,x in pairs(TESOStat) do
 SVIndicatorLabel:SetText(SVIndicatorLabel:GetText().."\n"..t.." : "..GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS))
 end
