@@ -1,7 +1,7 @@
 StatViewer = {}
 
 StatViewer.name="StatViewer"
-StatViewer.maxHealth=""
+StatViewer.maxHealth="YoloTest"
 
 function StatViewer:Initiliaze()
   EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
