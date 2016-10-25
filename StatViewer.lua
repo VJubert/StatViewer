@@ -11,7 +11,7 @@ end
 function StatViewer.OnAddOnLoaded(event, addonName)
   if addonName==StatViewer.name then
     StatViewer.Initiliaze()
-    StatViewer.UpdateStats(event)
+---    StatViewer.UpdateStats(event)
   end
 end
 
