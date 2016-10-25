@@ -5,12 +5,13 @@ StatViewer.maxHealth=""
 
 function StatViewer:Initiliaze()
   EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
-  StatViewer.UpdateStats(nil)
+  
 end
 
 function StatViewer.OnAddOnLoaded(event, addonName)
   if addonName==StatViewer.name then
     StatViewer.Initiliaze()
+    StatViewer.UpdateStats(event)
   end
 end
 
