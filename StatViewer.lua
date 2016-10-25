@@ -59,7 +59,7 @@ end
 
 function StatViewer.UpdateStats(event)
 for _,x in pairs(TESOStat) do
-SVIndicatorLabel:SetText(x+" : "+GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS))
+SVIndicatorLabel:SetText(x.." : "..GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS))
 end
 end
 
