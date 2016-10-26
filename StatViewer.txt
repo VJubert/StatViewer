@@ -1,6 +1,7 @@
 ## Title: StatViewer
 ## Author: Valball
 ## APIVersion: 100017
+## SavedVariables: SVSavedVariables
 
 StatViewer.xml
 StatViewer.lua

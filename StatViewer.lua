@@ -48,13 +48,26 @@ StatViewer.textMaxStam="Max Stamina : "
 
 function StatViewer:Initiliaze()
   EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
-  
+  StatViewer.savedVariables = ZO_SavedVars:NewAccountWide("SVSavedVariables", 1,nil,{})
+  StatViewer.RestorePosition()
 end
 
 function StatViewer.OnAddOnLoaded(event, addonName)
   if addonName==StatViewer.name then
     StatViewer.Initiliaze()
   end
+end
+
+function StatViewer.OnIndicatorMoveStop()
+  StatViewer.savedVariables.left = SVIndicator:GetLeft()
+  StatViewer.savedVariables.top = SVIndicator:GetTop()
+end
+function StatViewer:RestorePosition()
+  local left = StatViewer.savedVariables.left
+  local top = StatViewer.savedVariables.top
+ 
+  SVIndicator:ClearAnchors()
+  SVIndicator:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, left, top)
 end
 
 function StatViewer.UpdateStats(event)
