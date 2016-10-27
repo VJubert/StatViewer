@@ -9,7 +9,7 @@
       </OnMoveStop>
       
       <Controls>
-        <Label name="SVIndicatorLabel" width="200" height="25" font="ZoFontWinH3" inheritAlpha="true" color="FF0000"
+        <Label name="SVIndicatorLabel" width="200" height="25" font="ZoFontWinH3" inheritAlpha="true" 
             wrapMode="TRUNCATE" verticalAlignment="TOP" horizontalAlignment="CENTER" >
           <Anchor point="TOP" relativeTo="$(parent)" relativePoint="TOP" />
         </Label>
