@@ -41,12 +41,7 @@ STAT_HEALTH_MAX=STAT_HEALTH_MAX,
 }
 
 StatViewer.name="StatViewer"
-StatViewer.maxHealth=""
-StatViewer.textMaxHealth="Max Health : "
-StatViewer.maxMagicka=""
-StatViewer.textMaxMagicka="Max Magicka : "
-StatViewer.maxStam=""
-StatViewer.textMaxStam="Max Stamina : "
+
 
 function StatViewer:Initiliaze()
   EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
@@ -67,9 +62,10 @@ end
 function StatViewer:RestorePosition()
   local left = StatViewer.savedVariables.left
   local top = StatViewer.savedVariables.top
- 
-  SVIndicator:ClearAnchors()
-  SVIndicator:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, left, top)
+  if left ~= nil and top ~= nil then
+    SVIndicator:ClearAnchors()
+    SVIndicator:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, left, top)
+  end
 end
 
 function StatViewer.UpdateStats(event)
