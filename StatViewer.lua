@@ -69,10 +69,11 @@ function StatViewer:RestorePosition()
 end
 
 function StatViewer.UpdateStats(event)
-SVIndicatorLabel:SetText("")
-for t,x in pairs(TESOStat) do
-SVIndicatorLabel:SetText(SVIndicatorLabel:GetText().."\n"..t.." : "..GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS))
+---SVIndicatorLabel:SetText("")
+---for t,x in pairs(TESOStat) do
+---SVIndicatorLabel:GetText().."\n"..t.." : "..
+SVIndicatorLabel:SetText(GetPlayerStat(STAT_HEALTH_MAX,STAT_BONUS_OPTION_APPLY_BONUS))
 end
-end
+--end
 
 EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_ADD_ON_LOADED, StatViewer.OnAddOnLoaded)
