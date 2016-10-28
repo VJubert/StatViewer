@@ -43,15 +43,12 @@ STAT_HEALTH_MAX=STAT_HEALTH_MAX,
 StatViewer.name="StatViewer"
 
 
-function StatViewer:Initiliaze()
-  EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
-  StatViewer.savedVariables = ZO_SavedVars:NewAccountWide("SVSavedVariables", 1,nil,{})
-  StatViewer.RestorePosition()
-end
-
 function StatViewer.OnAddOnLoaded(event, addonName)
   if addonName==StatViewer.name then
-    StatViewer.Initiliaze()
+    EVENT_MANAGER:UnregisterForEvent(StatViewer.OnAddOnLoaded,EVENT_ADD_ON_LOADED)
+    EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
+    StatViewer.savedVariables = ZO_SavedVars:NewAccountWide("SVSavedVariables", 1,nil,{})
+    StatViewer.RestorePosition()
   end
 end
 
