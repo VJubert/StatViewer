@@ -1,6 +1,8 @@
 ## Title: StatViewer
 ## Author: Valball
+## Version: 1.0.0
 ## APIVersion: 100017
+## Description: Show character's stats on UI
 ## SavedVariables: SVSavedVariables
 
 StatViewer.xml
