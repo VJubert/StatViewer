@@ -43,37 +43,48 @@ STAT_WEAPON_AND_SPELL_DAMAGE=STAT_WEAPON_AND_SPELL_DAMAGE
 StatViewer.name="StatViewer"
 
 
-function StatViewer:Initiliaze()
+local function StatViewer:Initiliaze()
 end
 
-function StatViewer.OnAddOnLoaded(event, addonName)
-  if addonName==StatViewer.name then
-	EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
-	EVENT_MANAGER:UnregisterForEvent("StatViewer.OnAddOnLoaded",EVENT_ADD_ON_LOADED)
-	StatViewer.savedVariables = ZO_SavedVars:NewAccountWide("SVSavedVariables", 1,nil,{})
-	StatViewer.RestorePosition()
-  end
-end
-
-function StatViewer.OnIndicatorMoveStop()
-  StatViewer.savedVariables.left = SVIndicator:GetLeft()
-  StatViewer.savedVariables.top = SVIndicator:GetTop()
-end
-
-function StatViewer:RestorePosition()
-  local left = StatViewer.savedVariables.left
-  local top = StatViewer.savedVariables.top
-  if left ~= nil and top ~= nil then
-    SVIndicator:ClearAnchors()
-    SVIndicator:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, left, top)
-  end
-end
-
-function StatViewer.UpdateStats(event)
-	SVIndicatorLabel:SetText("")
-		for t,x in pairs(TESOStat) do
-			SVIndicatorLabel:SetText(SVIndicatorLabel:GetText()..t.." : "..GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS).."\n")
+local function StatViewer.OnAddOnLoaded(event, addonName)
+	if addonName==StatViewer.name then
+		EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_STATS_UPDATED, StatViewer.UpdateStats)
+		EVENT_MANAGER:UnregisterForEvent("StatViewer.OnAddOnLoaded",EVENT_ADD_ON_LOADED)
+		StatViewer.savedVariables = ZO_SavedVars:NewAccountWide("SVSavedVariables", 1,nil,{})
+		-- Register keybinding
+		ZO_CreateStringId("SI_BINDING_NAME_TOGGLE_StVa", GetString(StVa_TOGGLE))
+		-- enable close on Esc
+		SCENE_MANAGER:RegisterTopLevel(AIResearchGrid, false) 
+		StatViewer.RestorePosition()
 	end
+end
+
+local function StatViewer.OnIndicatorMoveStop()
+	StatViewer.savedVariables.left = StVaIndicator:GetLeft()
+	StatViewer.savedVariables.top = StVaIndicator:GetTop()
+end
+
+local function StatViewer:RestorePosition()
+	local left = StatViewer.savedVariables.left
+	local top = StatViewer.savedVariables.top
+	if left ~= nil and top ~= nil then
+		StVaIndicator:ClearAnchors()
+		StVaIndicator:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, left, top)
+	end
+end
+
+local function StatViewer.UpdateStats(event)
+	StVaIndicatorLabel:SetText("")
+		for t,x in pairs(TESOStat) do
+			StVaIndicatorLabel:SetText(StVaIndicatorLabel:GetText()..t.." : "..GetPlayerStat(x,STAT_BONUS_OPTION_APPLY_BONUS).."\n")
+	end
+end
+
+function StVa_ToggleMainWindow()
+	if StVaIndicator:IsHidden() then
+		
+	end
+	SCENE_MANAGER:ToogleTopLevel(StVaIndicator)
 end
 
 EVENT_MANAGER:RegisterForEvent(StatViewer.name, EVENT_ADD_ON_LOADED, StatViewer.OnAddOnLoaded)

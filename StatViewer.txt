@@ -1,9 +1,13 @@
 ## Title: StatViewer
 ## Author: Valball
-## Version: 1.0.0
-## APIVersion: 100017
+## Version: 0.1.0
+## APIVersion: 100018
 ## Description: Show character's stats on UI
-## SavedVariables: SVSavedVariables
+## SavedVariables: StatViewerSV
 
-StatViewer.xml
+lang/en.lua
+lang/$(language.lua)
+
 StatViewer.lua
+StatViewer.xml
+Bindings.xml
