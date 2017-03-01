@@ -1,6 +1,9 @@
-local strings ={
-StVaTITLE="StatViewer EN"
-StVa_TOGGLE="Toogle StatViewer"
+local strings = {
+StVaTITLE="StatViewer EN",
+StVaTOGGLE="Toogle StatViewer",
+StVaOPTIONSHEADER="Options",
+StVaOPTIONSRESIST="Show all resists",
+StVaOPTIONSRESISTTOOLTIP="All resistances will be shown on the UI with a new column",
 }
 
 for stringId, stringValue in pairs(strings) do

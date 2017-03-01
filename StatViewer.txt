@@ -1,9 +1,15 @@
 ## Title: StatViewer
 ## Author: Valball
-## Version: 0.1.0
+## Version: 0.2.0
 ## APIVersion: 100018
 ## Description: Show character's stats on UI
 ## SavedVariables: StatViewerSV
+
+lib/LibStub/LibStub.lua
+lib/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
+Libs/LibAddonMenu-2.0/controls/panel.lua
+Libs/LibAddonMenu-2.0/controls/header.lua
+Libs/LibAddonMenu-2.0/controls/checkbox.lua
 
 lang/en.lua
 lang/$(language.lua)
