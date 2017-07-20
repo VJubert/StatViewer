@@ -43,7 +43,7 @@ STAT_DAMAGE_RESIST_START=STAT_DAMAGE_RESIST_START,
 }
 --Addon's name
 StatViewer.name="StatViewer"
---Addon's versions
+--Addon's version
 StatViewer.version="0.2"
 --Boolean for the config, to show all resistance
 StatViewer.showRes=false
