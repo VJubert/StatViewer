@@ -43,6 +43,8 @@ STAT_DAMAGE_RESIST_START=STAT_DAMAGE_RESIST_START,
 }
 --Addon's name
 StatViewer.name="StatViewer"
+--Addon's versions
+StatViewer.version="0.2"
 --Boolean for the config, to show all resistance
 StatViewer.showRes=false
 
@@ -70,20 +72,24 @@ local function CreateConfigMenu()
 		type="panel",
 		name=StatViewer.name,
 		displayName=StatViewer.name,
-		author="Valball",	
+		author="Valball",
+		version=StatViewer.version,
 	}
 	local optionsData={
-		type="header"
-		name=GetString(StVaOPTIONSHEADER),
-	},
-	{	--Checkbox to show all resist
-		type="checkbox",
-		name=GetString(StVaOPTIONSRESIST),
-		tooltip=GetString(StVaOPTIONSRESISTTOOLTIP)
-		getFunc=function() return StatViewer.showRes end,
-		setFunc=function(newValue)
-			StatViewer.showRes=newValue
-		end,
+		[1]= {
+			type="header",
+			name=GetString(StVaOPTIONSHEADER),
+		},
+		[2] = {	--Checkbox to show all resist
+			type="checkbox",
+			name=GetString(StVaOPTIONSRESIST),
+			tooltip=GetString(StVaOPTIONSRESISTTOOLTIP),
+			width= "full",
+			getFunc=function() return StatViewer.showRes end,
+			setFunc=function(newValue)
+				StatViewer.showRes=newValue
+				end,
+		}
 	}
 	-- LibStub and LAM2 call
 	local LAM2=LibStub("LibAddonMenu-2.0")

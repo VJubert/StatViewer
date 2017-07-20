@@ -1,7 +1,7 @@
 ## Title: StatViewer
 ## Author: Valball
 ## Version: 0.2.0
-## APIVersion: 100018
+## APIVersion: 100019
 ## Description: Show character's stats on UI
 ## SavedVariables: StatViewerSV
 
